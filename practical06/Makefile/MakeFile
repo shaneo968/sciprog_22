@@ -1,0 +1,22 @@
+CC = gcc
+CCFLAGS = -O3
+LDFLAGS = -lm
+
+all: matmult 
+
+matmult: main.o practical06.o
+    $(CC) -o $@ $^ $(LDFLAGS)
+##$(CC) -o mmc main.o mm.o $(LDFLAGS)
+##  Column -> dependant files next line Tab key->
+##Command GCC -o $@ auto variable $^ add practical.o
+
+practical06.o: practical06.c
+    $(CC) -c $(CCFLAGS) $<
+##$(CC) -c $(CCFLAGS) mm.c
+
+main.o: main.c
+    $(CC) -c $(CCFLAGS) $<
+##$(CC) -c $(CCFLAGS) main.c
+
+clean:
+	rm *.o  
